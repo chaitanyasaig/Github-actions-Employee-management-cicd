@@ -1,0 +1,13 @@
+name: CI Yaml
+on:
+    push
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Starting the pipeline
+              run: echo "Hi"  
+            
+            - name: Checking out the code
+              uses: actions/checkout@v4     
