@@ -1,0 +1,14 @@
+name: CI Pipeline
+on: 
+    push:
+        branches:
+            - GHA-001-initial-ci
+    
+jobs:
+    first-hob:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Greeting
+              run: echo "Hello World!"
+            - name: Print Goodbye
+              run: echo "Good Bye!!"      
