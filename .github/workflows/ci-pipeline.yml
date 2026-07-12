@@ -22,4 +22,5 @@ jobs:
               with:
                 node-version: 22
             - name: Install Dependencies
+              working-directory: backend
               run: npm ci
