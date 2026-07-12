@@ -1,6 +1,17 @@
 name: CI Yaml
 on:
-    push
+    push:
+      branches:
+        - main    # This is the filtering of the branches and selecting main branch ONLY
+        - 'dev-*'
+        - 'feat-*'
+      paths:
+        - first-workflow.yml
+      paths-ignore:
+        - .gitignore         
+    pull_request:
+      types: opened  #Event types
+    workflow_dispatch: 
 
 jobs:
     first-job:
@@ -10,4 +21,12 @@ jobs:
               run: echo "Hi"  
             
             - name: Checking out the code
-              uses: actions/checkout@v4     
+              uses: actions/checkout@v7
+              
+            - name: Setup Node Action
+              uses: actions/setup-node@v6
+              with:
+                node-verison: 24
+                
+            - name: Install Dependencies
+              run: npm ci
