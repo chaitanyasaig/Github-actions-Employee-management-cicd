@@ -5,8 +5,8 @@ on:
     branches:
         - main
         - 'GHA-*'
-    paths:
-        - "backend/**"
+    # paths:
+    #     - "backend/**"
 jobs:
     backend-build:
         runs-on: ubuntu-latest       
