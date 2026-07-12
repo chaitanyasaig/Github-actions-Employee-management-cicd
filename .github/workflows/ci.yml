@@ -7,8 +7,8 @@ on:
         - 'feat-*'
       paths:
         - first-workflow.yml
-      paths-ignore:
-        - .gitignore         
+      # paths-ignore:
+      #   - .gitignore         
     pull_request:
       types: opened  #Event types
     workflow_dispatch: 
