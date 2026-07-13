@@ -40,7 +40,21 @@ jobs:
               run: npm run build
 
             - name: Upload Frontend artifact
-              uses: actions/upload-artifact@v7
+              uses: actions/upload-artifact@v4
               with:
                 name: frontend-artifact
                 path: frontend/build
+    verify-artifact:
+      needs: backend-build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Download the artifacts.
+          uses: actions/download-artifact@v4
+          with:
+            name: frontend-artifact
+        - name: Check downloaded files
+          run: |
+            echo "List of files"
+            ls  -R  
+            echo "Present working directory"
+            pwd
