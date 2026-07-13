@@ -13,14 +13,30 @@ jobs:
         steps:
             - name: Print Hello
               run: echo "Hello"
+
             - name: Checkout the code
               uses: actions/checkout@v4 
+
             - name: check the files
               run: ls   
+
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
                 node-version: 22
-            - name: Install Dependencies
+
+            - name: Install Dependencies for the backend.
               working-directory: backend # Updated working directory
               run: npm ci
+
+            - name: Install Frontend Dependencies
+              working-directory: frontend
+              run: npm ci
+
+            - name: Build Backend
+              working-directory: backend
+              run: npm run build
+
+            - name: Build Frontend
+              working-directory: frontend
+              run: npm run build
