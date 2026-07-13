@@ -38,3 +38,9 @@ jobs:
               env:
                 CI: false
               run: npm run build
+
+            - name: Upload Frontend artifact
+              uses: actions/upload-artifact@v7
+              with:
+                name: frontend-artifact
+                path: frontend/build
